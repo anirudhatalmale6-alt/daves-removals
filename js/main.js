@@ -73,7 +73,7 @@ function getFooter() {
               <span class="tagline">& Sons</span>
             </div>
           </a>
-          <p>A trusted, family-run removals company dedicated to making your move stress-free. We handle your belongings as if they were our own.</p>
+          <p>A trusted, family-run removals company proudly serving the Shoalhaven and South Coast region. We handle your belongings as if they were our own.</p>
           <div class="footer-social">
             <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M16 4H8a4 4 0 00-4 4v8a4 4 0 004 4h8a4 4 0 004-4V8a4 4 0 00-4-4zm2 12a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2h8a2 2 0 012 2v8zm-6-7a3 3 0 100 6 3 3 0 000-6zm4.5-.5a1 1 0 100-2 1 1 0 000 2z"/></svg></a>
@@ -104,6 +104,10 @@ function getFooter() {
         <div>
           <h4>Contact Info</h4>
           <ul class="footer-contact">
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Nowra, NSW, Australia
+            </li>
             <li>
               <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               bharper286@gmail.com
