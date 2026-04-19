@@ -108,7 +108,6 @@ function getFooter() {
             <li><a href="services.html">Packing Services</a></li>
             <li><a href="services.html">Storage Solutions</a></li>
             <li><a href="services.html">Single Item Moves</a></li>
-            <li><a href="services.html">Student Moves</a></li>
           </ul>
         </div>
         <div>
