@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Move Online | Dave's Removals &amp; Sons - Nowra, South Coast NSW</title>
+    <meta name="description" content="Book your removals online with Dave's Removals &amp; Sons in Nowra. Easy online booking for home and office moves across the South Coast NSW. Get confirmed within 24 hours.">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Book Your Move Online",
+        "description": "Book your removals online with Dave's Removals & Sons in Nowra. Easy online booking for home and office moves across the South Coast NSW.",
+        "url": "https://www.davesremovals.com.au/booking.html",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Dave's Removals & Sons",
+            "url": "https://www.davesremovals.com.au"
+        },
+        "provider": {
+            "@type": "MovingCompany",
+            "name": "Dave's Removals & Sons",
+            "telephone": "1300 668 333",
+            "email": "bharper286@gmail.com",
+            "areaServed": {
+                "@type": "Place",
+                "name": "Nowra, South Coast NSW, Australia"
+            }
+        }
+    }
+    </script>
+
+    <style>
+        .booking-step { margin-top: 32px; padding-top: 32px; border-top: 2px solid var(--gray-100); }
+        .booking-step:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+        .booking-step h4 { color: var(--blue); margin-bottom: 20px; font-size: 1.1rem; }
+        .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--off-white); border-radius: var(--radius-sm); cursor: pointer; transition: var(--transition); border: 1px solid var(--gray-100); }
+        .checkbox-item:hover { border-color: var(--blue); background: var(--blue-pale); }
+        .checkbox-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--blue); cursor: pointer; }
+        .checkbox-item label { cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+
+        @media (max-width: 768px) {
+            .checkbox-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body data-page="Booking">
+
+    <div id="site-header"></div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> &gt; <span>Book Online</span>
+            </nav>
+            <h1>Book Your Move Online</h1>
+            <p>Fill in the details below and we'll confirm your booking within 24 hours.</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="section">
+        <div class="container">
+            <div class="quote-form" style="max-width: 800px; margin: 0 auto;">
+
+                <form id="bookingForm" action="https://formsubmit.co/bharper286@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Booking Request - Dave's Removals">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+
+                    <!-- Step 1: Your Details -->
+                    <div class="booking-step">
+                        <h4>Step 1: Your Details</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="Email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="Phone Number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMethod">Preferred Contact Method</label>
+                                <select id="contactMethod" name="Preferred Contact Method">
+                                    <option value="Phone">Phone</option>
+                                    <option value="Email">Email</option>
+                                    <option value="Either">Either</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Move Details -->
+                    <div class="booking-step">
+                        <h4>Step 2: Move Details</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="movingFrom">Moving From - Address *</label>
+                                <input type="text" id="movingFrom" name="Moving From" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="movingTo">Moving To - Address *</label>
+                                <input type="text" id="movingTo" name="Moving To" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredDate">Preferred Date *</label>
+                                <input type="date" id="preferredDate" name="Preferred Date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="alternativeDate">Alternative Date</label>
+                                <input type="date" id="alternativeDate" name="Alternative Date">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="propertySize">Property Size</label>
+                                <select id="propertySize" name="Property Size">
+                                    <option value="Studio">Studio</option>
+                                    <option value="1 Bedroom">1 Bedroom</option>
+                                    <option value="2 Bedrooms">2 Bedrooms</option>
+                                    <option value="3 Bedrooms">3 Bedrooms</option>
+                                    <option value="4 Bedrooms">4 Bedrooms</option>
+                                    <option value="5+ Bedrooms">5+ Bedrooms</option>
+                                    <option value="Office/Commercial">Office/Commercial</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="floors">Number of Floors</label>
+                                <select id="floors" name="Number of Floors">
+                                    <option value="Ground Floor">Ground Floor</option>
+                                    <option value="1st Floor">1st Floor</option>
+                                    <option value="2nd Floor">2nd Floor</option>
+                                    <option value="3rd Floor+">3rd Floor+</option>
+                                    <option value="Lift Access">Lift Access</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="accessNotes">Access Notes</label>
+                            <textarea id="accessNotes" name="Access Notes" rows="3" placeholder="Any access issues? Stairs, narrow doorways, parking restrictions, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Services Required -->
+                    <div class="booking-step">
+                        <h4>Step 3: Services Required</h4>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="svcRemoval" name="Services" value="Full Home Removal">
+                                <label for="svcRemoval">Full Home Removal</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="svcPacking" name="Services" value="Packing Service">
+                                <label for="svcPacking">Packing Service</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="svcUnpacking" name="Services" value="Unpacking Service">
+                                <label for="svcUnpacking">Unpacking Service</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="svcFurniture" name="Services" value="Furniture Disassembly/Assembly">
+                                <label for="svcFurniture">Furniture Disassembly/Assembly</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="svcStorage" name="Services" value="Storage Required">
+                                <label for="svcStorage">Storage Required</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="svcPiano" name="Services" value="Piano/Heavy Item Moving">
+                                <label for="svcPiano">Piano/Heavy Item Moving</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="svcCleaning" name="Services" value="Cleaning Service">
+                                <label for="svcCleaning">Cleaning Service</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="svcRubbish" name="Services" value="Rubbish Removal">
+                                <label for="svcRubbish">Rubbish Removal</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialItems">Special Items</label>
+                            <textarea id="specialItems" name="Special Items" rows="3" placeholder="List any fragile, valuable, or oversized items that need special care"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Additional Information -->
+                    <div class="booking-step">
+                        <h4>Step 4: Additional Information</h4>
+                        <div class="form-group">
+                            <label for="hearAbout">How did you hear about us?</label>
+                            <select id="hearAbout" name="How Did You Hear About Us">
+                                <option value="Google Search">Google Search</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Friend/Family Referral">Friend/Family Referral</option>
+                                <option value="Repeat Customer">Repeat Customer</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="additionalNotes">Additional Notes</label>
+                            <textarea id="additionalNotes" name="Additional Notes" rows="4" placeholder="Anything else we should know about your move?"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-submit-row">
+                        <button type="submit" class="btn-primary btn-lg">Submit Booking Request</button>
+                        <p class="privacy-note">We'll confirm your booking within 24 hours. For urgent bookings, call <a href="tel:1300668333">1300 668 333</a>.</p>
+                    </div>
+                </form>
+
+                <div id="formSuccess" class="form-success">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="32" r="32" fill="#22c55e"/>
+                        <path d="M20 33L28 41L44 25" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>Booking Request Received!</h3>
+                    <p>Thank you for your booking request. We'll review the details and get back to you within 24 hours to confirm everything. If you need urgent assistance, call us on <a href="tel:1300668333">1300 668 333</a>.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('bookingForm');
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = 'Submitting...';
+                submitBtn.disabled = true;
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        document.getElementById('formSuccess').classList.add('show');
+                    } else { throw new Error('Failed'); }
+                } catch (err) {
+                    alert('Something went wrong. Please call us on 1300 668 333 to book.');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

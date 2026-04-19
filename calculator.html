@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Use our free Space Calculator to estimate what size truck you need for your move in Nowra, South Coast NSW. Dave's Removals & Sons - instant moving estimates.">
+    <title>Space Calculator - Dave's Removals & Sons | Nowra, South Coast NSW</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Space Calculator - Dave's Removals & Sons",
+        "description": "Free space calculator to estimate truck size for your move in Nowra and South Coast NSW.",
+        "url": "",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Dave's Removals & Sons",
+            "url": ""
+        },
+        "about": {
+            "@type": "MovingCompany",
+            "name": "Dave's Removals & Sons",
+            "telephone": "1300 668 333",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Nowra",
+                "addressRegion": "NSW",
+                "postalCode": "2541",
+                "addressCountry": "AU"
+            }
+        }
+    }
+    </script>
+    <style>
+        .calc-categories { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+        .calc-cat-btn { padding: 10px 18px; border: 2px solid var(--gray-100); border-radius: var(--radius-sm); background: var(--white); font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: var(--transition); color: var(--gray-600); }
+        .calc-cat-btn:hover, .calc-cat-btn.active { background: var(--blue); color: var(--white); border-color: var(--blue); }
+        .calc-items-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .calc-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--off-white); border-radius: var(--radius-sm); border: 1px solid var(--gray-100); transition: var(--transition); }
+        .calc-item.has-items { background: var(--blue-pale); border-color: var(--blue); }
+        .calc-item-info { display: flex; align-items: center; gap: 10px; }
+        .calc-item-emoji { font-size: 1.3rem; }
+        .calc-item-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+        .calc-item-controls { display: flex; align-items: center; gap: 8px; }
+        .calc-btn { width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--gray-200); background: var(--white); font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); color: var(--navy); }
+        .calc-btn:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
+        .calc-count { font-family: var(--font-display); font-weight: 700; font-size: 1rem; min-width: 24px; text-align: center; color: var(--navy); }
+        .estimate-stat { margin-bottom: 24px; }
+        .estimate-stat .stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+        .estimate-stat .stat-value { font-family: var(--font-display); font-weight: 800; font-size: 2rem; color: var(--amber); }
+        .estimate-stat .stat-sub { font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-top: 4px; }
+        .volume-bar { height: 12px; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden; margin: 8px 0 24px; }
+        .volume-bar-fill { height: 100%; background: linear-gradient(90deg, var(--amber), #E8A838); border-radius: 6px; transition: width 0.5s ease; min-width: 0; }
+        .estimate-items-list { margin: 24px 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .estimate-items-list h4 { color: var(--white); margin-bottom: 12px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .est-item-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+        .est-item-row .est-qty { color: var(--amber); font-weight: 700; }
+        .estimate-note { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 24px; font-style: italic; }
+        .estimate-empty { color: rgba(255,255,255,0.5); font-size: 0.95rem; padding: 20px 0; }
+        @media (max-width: 768px) {
+            .calc-items-grid { grid-template-columns: 1fr; }
+            .calc-cat-btn { padding: 8px 14px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body data-page="Calculator">
+
+    <div id="site-header"></div>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero fade-in">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a> &gt; <span>Space Calculator</span>
+                </nav>
+                <h1>Space Calculator</h1>
+                <p class="hero-subtitle">Estimate what size truck you'll need for your move. Add your items below to get an instant estimate.</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="section fade-in">
+            <div class="container">
+                <div class="contact-grid">
+
+                    <!-- Left Column: Add Items -->
+                    <div class="quote-form">
+                        <h3>Add Your Items</h3>
+                        <div id="calcCategories" class="calc-categories"></div>
+                        <div id="calcItemsGrid" class="calc-items-grid"></div>
+                    </div>
+
+                    <!-- Right Column: Estimate -->
+                    <div class="contact-info-card">
+                        <h3>Your Estimate</h3>
+
+                        <div class="estimate-stat">
+                            <div class="stat-label">Total Items</div>
+                            <div class="stat-value" id="totalItems">0</div>
+                        </div>
+
+                        <div class="estimate-stat">
+                            <div class="stat-label">Estimated Volume</div>
+                            <div class="stat-value" id="totalVolume">0 m&sup3;</div>
+                        </div>
+
+                        <div class="estimate-stat">
+                            <div class="stat-label">Recommended Truck</div>
+                            <div class="stat-value" id="truckSize" style="font-size: 1.4rem;">--</div>
+                            <div class="stat-sub" id="truckSub"></div>
+                        </div>
+
+                        <div class="volume-bar">
+                            <div class="volume-bar-fill" id="volumeBar" style="width: 0%;"></div>
+                        </div>
+
+                        <div id="estimateItemsList" class="estimate-items-list" style="display: none;">
+                            <h4>Items Added</h4>
+                            <div id="itemsListContent"></div>
+                        </div>
+
+                        <div id="estimateEmpty" class="estimate-empty">
+                            Add items from the left to see your estimate.
+                        </div>
+
+                        <a href="contact.html" class="btn btn-primary btn-lg" style="width: 100%; text-align: center; margin-top: 24px;">Get a Quote</a>
+                        <a href="tel:1300668333" class="btn btn-outline" style="width: 100%; text-align: center; margin-top: 12px; border-color: rgba(255,255,255,0.3); color: var(--white);">Call Us: 1300 668 333</a>
+
+                        <p class="estimate-note">This is an estimate only. Contact us for an accurate quote.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="js/main.js"></script>
+    <script>
+    (function() {
+        var categories = {
+            'Bedroom': [
+                { name: 'King Bed', emoji: '\uD83D\uDECF\uFE0F', volume: 2.5 },
+                { name: 'Queen Bed', emoji: '\uD83D\uDECF\uFE0F', volume: 2.0 },
+                { name: 'Single Bed', emoji: '\uD83D\uDECC', volume: 1.5 },
+                { name: 'Wardrobe', emoji: '\uD83D\uDEAA', volume: 1.5 },
+                { name: 'Chest of Drawers', emoji: '\uD83D\uDDC4\uFE0F', volume: 0.8 },
+                { name: 'Bedside Table', emoji: '\uD83D\uDECB\uFE0F', volume: 0.3 },
+                { name: 'Dressing Table', emoji: '\uD83E\uDE9E', volume: 0.8 },
+                { name: 'Bookshelf', emoji: '\uD83D\uDCDA', volume: 0.6 }
+            ],
+            'Living Room': [
+                { name: '3-Seater Sofa', emoji: '\uD83D\uDECB\uFE0F', volume: 2.0 },
+                { name: '2-Seater Sofa', emoji: '\uD83D\uDECB\uFE0F', volume: 1.5 },
+                { name: 'Armchair', emoji: '\uD83E\uDE91', volume: 0.8 },
+                { name: 'Coffee Table', emoji: '\u2615', volume: 0.5 },
+                { name: 'TV Unit', emoji: '\uD83D\uDCFA', volume: 0.7 },
+                { name: 'Large TV (50"+)', emoji: '\uD83D\uDCFA', volume: 0.5 },
+                { name: 'Dining Table', emoji: '\uD83C\uDF7D\uFE0F', volume: 1.5 },
+                { name: 'Dining Chairs (set of 4)', emoji: '\uD83E\uDE91', volume: 1.0 }
+            ],
+            'Kitchen': [
+                { name: 'Fridge', emoji: '\uD83E\uDDCA', volume: 1.5 },
+                { name: 'Washing Machine', emoji: '\uD83E\uDDFA', volume: 1.0 },
+                { name: 'Dryer', emoji: '\u2668\uFE0F', volume: 1.0 },
+                { name: 'Dishwasher', emoji: '\uD83E\uDDFD', volume: 0.8 },
+                { name: 'Microwave', emoji: '\uD83C\uDF73', volume: 0.2 },
+                { name: 'Small Appliances Box', emoji: '\uD83D\uDCE6', volume: 0.3 }
+            ],
+            'Office': [
+                { name: 'Office Desk', emoji: '\uD83D\uDCBC', volume: 1.5 },
+                { name: 'Office Chair', emoji: '\uD83E\uDE91', volume: 0.5 },
+                { name: 'Filing Cabinet', emoji: '\uD83D\uDDC4\uFE0F', volume: 0.5 },
+                { name: 'Computer/Monitor', emoji: '\uD83D\uDCBB', volume: 0.3 },
+                { name: 'Printer', emoji: '\uD83D\uDDA8\uFE0F', volume: 0.2 },
+                { name: 'Bookshelf', emoji: '\uD83D\uDCDA', volume: 0.6 }
+            ],
+            'Outdoor': [
+                { name: 'BBQ', emoji: '\uD83C\uDF56', volume: 1.0 },
+                { name: 'Outdoor Table', emoji: '\uD83C\uDFD6\uFE0F', volume: 1.2 },
+                { name: 'Outdoor Chairs (set of 4)', emoji: '\uD83E\uDE91', volume: 0.8 },
+                { name: 'Lawn Mower', emoji: '\uD83C\uDF3F', volume: 0.8 },
+                { name: 'Garden Tools', emoji: '\uD83E\uDDF0', volume: 0.5 },
+                { name: 'Bicycle', emoji: '\uD83D\uDEB2', volume: 0.5 },
+                { name: 'Trampoline', emoji: '\uD83E\uDD38', volume: 2.0 }
+            ],
+            'Boxes & Misc': [
+                { name: 'Small Box', emoji: '\uD83D\uDCE6', volume: 0.1 },
+                { name: 'Medium Box', emoji: '\uD83D\uDCE6', volume: 0.2 },
+                { name: 'Large Box', emoji: '\uD83D\uDCE6', volume: 0.4 },
+                { name: 'Wardrobe Box', emoji: '\uD83D\uDCE6', volume: 0.5 },
+                { name: 'Piano (Upright)', emoji: '\uD83C\uDFB9', volume: 2.5 },
+                { name: 'Piano (Grand)', emoji: '\uD83C\uDFB9', volume: 4.0 },
+                { name: 'Exercise Equipment', emoji: '\uD83C\uDFCB\uFE0F', volume: 1.5 },
+                { name: 'Artwork/Mirror', emoji: '\uD83D\uDDBC\uFE0F', volume: 0.3 }
+            ]
+        };
+
+        // State: counts keyed by "category|itemName"
+        var counts = {};
+        var activeCategory = 'Bedroom';
+
+        function getKey(cat, itemName) {
+            return cat + '|' + itemName;
+        }
+
+        function getCount(cat, itemName) {
+            return counts[getKey(cat, itemName)] || 0;
+        }
+
+        function setCount(cat, itemName, val) {
+            var key = getKey(cat, itemName);
+            if (val <= 0) {
+                delete counts[key];
+            } else {
+                counts[key] = val;
+            }
+        }
+
+        function renderCategories() {
+            var container = document.getElementById('calcCategories');
+            container.innerHTML = '';
+            var catNames = Object.keys(categories);
+            for (var i = 0; i < catNames.length; i++) {
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'calc-cat-btn' + (catNames[i] === activeCategory ? ' active' : '');
+                btn.textContent = catNames[i];
+                btn.setAttribute('data-cat', catNames[i]);
+                btn.addEventListener('click', function() {
+                    activeCategory = this.getAttribute('data-cat');
+                    renderCategories();
+                    renderItems();
+                });
+                container.appendChild(btn);
+            }
+        }
+
+        function renderItems() {
+            var container = document.getElementById('calcItemsGrid');
+            container.innerHTML = '';
+            var items = categories[activeCategory];
+            for (var i = 0; i < items.length; i++) {
+                (function(item) {
+                    var count = getCount(activeCategory, item.name);
+                    var div = document.createElement('div');
+                    div.className = 'calc-item' + (count > 0 ? ' has-items' : '');
+
+                    div.innerHTML =
+                        '<div class="calc-item-info">' +
+                            '<span class="calc-item-emoji">' + item.emoji + '</span>' +
+                            '<span class="calc-item-name">' + item.name + '</span>' +
+                        '</div>' +
+                        '<div class="calc-item-controls">' +
+                            '<button type="button" class="calc-btn calc-minus">&minus;</button>' +
+                            '<span class="calc-count">' + count + '</span>' +
+                            '<button type="button" class="calc-btn calc-plus">+</button>' +
+                        '</div>';
+
+                    var cat = activeCategory;
+                    div.querySelector('.calc-minus').addEventListener('click', function() {
+                        var c = getCount(cat, item.name);
+                        if (c > 0) {
+                            setCount(cat, item.name, c - 1);
+                            renderItems();
+                            updateEstimate();
+                        }
+                    });
+                    div.querySelector('.calc-plus').addEventListener('click', function() {
+                        var c = getCount(cat, item.name);
+                        setCount(cat, item.name, c + 1);
+                        renderItems();
+                        updateEstimate();
+                    });
+
+                    container.appendChild(div);
+                })(items[i]);
+            }
+        }
+
+        function updateEstimate() {
+            var totalItemCount = 0;
+            var totalVol = 0;
+            var addedItems = [];
+
+            var catNames = Object.keys(categories);
+            for (var c = 0; c < catNames.length; c++) {
+                var items = categories[catNames[c]];
+                for (var i = 0; i < items.length; i++) {
+                    var cnt = getCount(catNames[c], items[i].name);
+                    if (cnt > 0) {
+                        totalItemCount += cnt;
+                        totalVol += cnt * items[i].volume;
+                        addedItems.push({ name: items[i].name, qty: cnt, vol: (cnt * items[i].volume).toFixed(1) });
+                    }
+                }
+            }
+
+            document.getElementById('totalItems').textContent = totalItemCount;
+            document.getElementById('totalVolume').innerHTML = totalVol.toFixed(1) + ' m&sup3;';
+
+            // Truck recommendation
+            var truckLabel = '--';
+            var truckSub = '';
+            if (totalVol > 0 && totalVol <= 10) {
+                truckLabel = 'Small Van';
+                truckSub = 'Suits studio/1 bedroom';
+            } else if (totalVol > 10 && totalVol <= 20) {
+                truckLabel = 'Medium Truck';
+                truckSub = 'Suits 2 bedroom home';
+            } else if (totalVol > 20 && totalVol <= 35) {
+                truckLabel = 'Large Truck';
+                truckSub = 'Suits 3 bedroom home';
+            } else if (totalVol > 35 && totalVol <= 50) {
+                truckLabel = 'Extra Large Truck';
+                truckSub = 'Suits 4 bedroom home';
+            } else if (totalVol > 50) {
+                truckLabel = 'Multiple Trucks';
+                truckSub = 'Suits 5+ bedroom home';
+            }
+            document.getElementById('truckSize').textContent = truckLabel;
+            document.getElementById('truckSub').textContent = truckSub;
+
+            // Volume bar (max 50 m3 = 100%)
+            var pct = Math.min((totalVol / 50) * 100, 100);
+            document.getElementById('volumeBar').style.width = pct + '%';
+
+            // Items list
+            var listEl = document.getElementById('estimateItemsList');
+            var contentEl = document.getElementById('itemsListContent');
+            var emptyEl = document.getElementById('estimateEmpty');
+
+            if (addedItems.length > 0) {
+                listEl.style.display = '';
+                emptyEl.style.display = 'none';
+                var html = '';
+                for (var j = 0; j < addedItems.length; j++) {
+                    html += '<div class="est-item-row"><span>' + addedItems[j].name + '</span><span class="est-qty">' + addedItems[j].qty + 'x (' + addedItems[j].vol + ' m\u00B3)</span></div>';
+                }
+                contentEl.innerHTML = html;
+            } else {
+                listEl.style.display = 'none';
+                emptyEl.style.display = '';
+            }
+        }
+
+        // Init
+        renderCategories();
+        renderItems();
+        updateEstimate();
+    })();
+    </script>
+</body>
+</html>
