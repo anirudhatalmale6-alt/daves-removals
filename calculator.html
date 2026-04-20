@@ -305,18 +305,15 @@
             // Truck recommendation
             var truckLabel = '--';
             var truckSub = '';
-            if (totalVol > 0 && totalVol <= 10) {
-                truckLabel = 'Small Van';
-                truckSub = 'Suits studio/1 bedroom';
-            } else if (totalVol > 10 && totalVol <= 20) {
+            if (totalVol > 0 && totalVol <= 15) {
                 truckLabel = 'Medium Truck';
-                truckSub = 'Suits 2 bedroom home';
-            } else if (totalVol > 20 && totalVol <= 35) {
+                truckSub = 'Suits studio/1-2 bedroom';
+            } else if (totalVol > 15 && totalVol <= 30) {
                 truckLabel = 'Large Truck';
-                truckSub = 'Suits 3 bedroom home';
-            } else if (totalVol > 35 && totalVol <= 50) {
+                truckSub = 'Suits 2-3 bedroom home';
+            } else if (totalVol > 30 && totalVol <= 50) {
                 truckLabel = 'Extra Large Truck';
-                truckSub = 'Suits 4 bedroom home';
+                truckSub = 'Suits 4+ bedroom home';
             } else if (totalVol > 50) {
                 truckLabel = 'Multiple Trucks';
                 truckSub = 'Suits 5+ bedroom home';
