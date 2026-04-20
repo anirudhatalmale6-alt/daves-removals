@@ -6,27 +6,61 @@
     <meta name="description" content="Get a free, no-obligation quote from Dave's Removals & Sons in Nowra, South Coast NSW. Contact us today for professional moving services across the Shoalhaven and NSW.">
     <title>Contact Us - Dave's Removals & Sons | Nowra, South Coast NSW</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .quote-hero { background: var(--navy); padding: 60px 0 40px; text-align: center; }
+        .quote-hero h1 { color: #fff; font-size: 2.5rem; margin-bottom: 8px; }
+        .quote-hero p { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
+
+        .quick-contact { background: var(--amber); padding: 20px 0; }
+        .quick-contact-inner { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .quick-contact a, .quick-contact span { color: var(--navy); font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .quick-contact svg { width: 20px; height: 20px; fill: var(--navy); }
+
+        .quote-section { padding: 50px 0 60px; background: #f8f9fa; }
+        .quote-card { max-width: 700px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 40px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .quote-card h2 { font-family: var(--font-display); font-size: 1.6rem; color: var(--navy); margin-bottom: 6px; }
+        .quote-card .subtitle { color: #666; margin-bottom: 30px; font-size: 0.95rem; }
+
+        .quote-card .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .quote-card .form-group { margin-bottom: 16px; }
+        .quote-card label { display: block; font-weight: 600; font-size: 0.9rem; color: var(--navy); margin-bottom: 6px; }
+        .quote-card input, .quote-card select, .quote-card textarea {
+            width: 100%; padding: 12px 14px; border: 2px solid #e0e0e0; border-radius: 8px;
+            font-size: 0.95rem; font-family: var(--font-body); transition: border-color 0.2s;
+            background: #fafafa;
+        }
+        .quote-card input:focus, .quote-card select:focus, .quote-card textarea:focus {
+            border-color: var(--amber); outline: none; background: #fff;
+        }
+        .quote-card textarea { resize: vertical; min-height: 100px; }
+
+        .quote-card .submit-btn {
+            width: 100%; padding: 16px; background: var(--amber); color: var(--navy);
+            border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 700;
+            font-family: var(--font-display); cursor: pointer; transition: background 0.2s;
+            margin-top: 8px;
+        }
+        .quote-card .submit-btn:hover { background: #d4982e; }
+        .quote-card .privacy { text-align: center; color: #999; font-size: 0.8rem; margin-top: 12px; }
+
+        .form-success { text-align: center; padding: 40px 20px; }
+        .form-success svg { color: #4CAF50; margin-bottom: 16px; }
+        .form-success h3 { color: var(--navy); margin-bottom: 8px; }
+
+        @media (max-width: 600px) {
+            .quote-card .form-row { grid-template-columns: 1fr; gap: 0; }
+            .quote-card { padding: 24px 20px; margin: 0 16px; }
+            .quick-contact-inner { gap: 20px; }
+        }
+    </style>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "MovingCompany",
         "name": "Dave's Removals & Sons",
-        "description": "Professional removals and moving services in Nowra, South Coast NSW. Family-run business with over 15 years of experience.",
-        "email": "bharper286@gmail.com",
         "telephone": "1300 668 333",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Nowra",
-            "addressRegion": "NSW",
-            "postalCode": "2541",
-            "addressCountry": "AU"
-        },
-        "areaServed": {
-            "@type": "Place",
-            "name": "Shoalhaven, South Coast NSW"
-        },
-        "url": "",
-        "priceRange": "$$"
+        "email": "bharper286@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Nowra", "addressRegion": "NSW", "postalCode": "2541", "addressCountry": "AU" }
     }
     </script>
 </head>
@@ -35,160 +69,104 @@
     <div id="site-header"></div>
 
     <main>
-        <!-- Page Hero -->
-        <section class="page-hero fade-in">
+        <section class="quote-hero">
             <div class="container">
-                <nav class="breadcrumb">
-                    <a href="index.html">Home</a> &gt; <span>Contact</span>
-                </nav>
                 <h1>Get a Free Quote</h1>
-                <p class="hero-subtitle">Tell us about your move and we'll get back to you with a free, no-obligation quote.</p>
+                <p>Tell us about your move and we'll get back to you fast.</p>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section class="section fade-in">
+        <section class="quick-contact">
             <div class="container">
-                <div class="contact-grid">
+                <div class="quick-contact-inner">
+                    <a href="tel:1300668333">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        1300 668 333
+                    </a>
+                    <a href="mailto:bharper286@gmail.com">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        bharper286@gmail.com
+                    </a>
+                    <span>
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        Open 24/7
+                    </span>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Left Column: Contact Info -->
-                    <div class="contact-info-card">
-                        <h3>Get in Touch</h3>
-                        <p>We'd love to hear from you. Reach out through any of the methods below.</p>
+        <section class="quote-section">
+            <div class="container">
+                <div class="quote-card">
+                    <h2>Request Your Free Quote</h2>
+                    <p class="subtitle">Fill in the details below and we'll get back to you shortly.</p>
 
-                        <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                                </svg>
-                            </div>
-                            <div class="contact-item-text">
-                                <strong>Call Us</strong>
-                                <a href="tel:1300668333" style="color: #F9A825;">1300 668 333</a>
-                            </div>
-                        </div>
+                    <form id="quoteForm" action="https://formsubmit.co/bharper286@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Quote Request - Dave's Removals">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
 
-                        <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                                </svg>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your name">
                             </div>
-                            <div class="contact-item-text">
-                                <strong>Email Us</strong>
-                                <a href="mailto:bharper286@gmail.com">bharper286@gmail.com</a>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                                </svg>
-                            </div>
-                            <div class="contact-item-text">
-                                <strong>Working Hours</strong>
-                                <span>Open 24/7 - Call us anytime</span>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
                             </div>
                         </div>
 
-                        <div class="contact-item">
-                            <div class="contact-item-icon">
-                                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                </svg>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Your email">
                             </div>
-                            <div class="contact-item-text">
-                                <strong>Service Area</strong>
-                                <span>Covering the Shoalhaven, South Coast & all of NSW</span>
+                            <div class="form-group">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" name="date">
                             </div>
                         </div>
 
-                        <div class="contact-hours" style="text-align:center;">
-                            <h4 style="margin-bottom:8px;">We're Available</h4>
-                            <div style="font-family:var(--font-display);font-weight:800;font-size:2.5rem;color:var(--amber);margin-bottom:4px;">24/7</div>
-                            <p style="color:rgba(255,255,255,0.6);margin:0;font-size:0.95rem;">Call us anytime, day or night</p>
-                            <a href="tel:1300668333" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--amber);color:var(--navy);padding:12px 28px;border-radius:6px;font-weight:700;font-family:var(--font-display);font-size:1.1rem;">
-                                <svg style="width:20px;height:20px;fill:var(--navy);" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                                1300 668 333
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Quote Form -->
-                    <div class="quote-form">
-                        <h3>Request a Quote</h3>
-                        <p>Fill in the form below and we'll get back to you as soon as possible.</p>
-
-                        <form id="quoteForm" action="https://formsubmit.co/bharper286@gmail.com" method="POST">
-                            <input type="hidden" name="_subject" value="New Quote Request - Dave's Removals">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_template" value="table">
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Full Name</label>
-                                    <input type="text" id="name" name="name" required placeholder="Your full name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" required placeholder="Your email address">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="phone">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" placeholder="Your phone number">
-                                </div>
-                                <div class="form-group">
-                                    <label for="date">Preferred Date</label>
-                                    <input type="date" id="date" name="date">
-                                </div>
-                            </div>
-
+                        <div class="form-row">
                             <div class="form-group">
                                 <label for="movingFrom">Moving From</label>
-                                <input type="text" id="movingFrom" name="movingFrom" placeholder="Current address or postcode">
+                                <input type="text" id="movingFrom" name="movingFrom" placeholder="Suburb or postcode">
                             </div>
-
                             <div class="form-group">
                                 <label for="movingTo">Moving To</label>
-                                <input type="text" id="movingTo" name="movingTo" placeholder="New address or postcode">
+                                <input type="text" id="movingTo" name="movingTo" placeholder="Suburb or postcode">
                             </div>
-
-                            <div class="form-group">
-                                <label for="service">Service Required</label>
-                                <select id="service" name="service">
-                                    <option value="">Please Select</option>
-                                    <option value="Home Removal">Home Removal</option>
-                                    <option value="Office Move">Office Move</option>
-                                    <option value="Packing Service">Packing Service</option>
-                                    <option value="Storage">Storage</option>
-                                    <option value="Single Item Move">Single Item Move</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="details">Additional Details</label>
-                                <textarea id="details" name="details" rows="5" placeholder="Tell us about your move — number of rooms, any special items, access requirements, etc."></textarea>
-                            </div>
-
-                            <div class="form-submit-row">
-                                <button type="submit" class="btn btn-primary btn-lg">Send Quote Request</button>
-                                <p class="privacy-note">Your information is safe with us. We'll never share your details.</p>
-                            </div>
-                        </form>
-
-                        <div id="formSuccess" class="form-success" style="display: none;">
-                            <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                            <h3>Thank You!</h3>
-                            <p>Your quote request has been sent successfully. We'll get back to you within 24 hours.</p>
                         </div>
-                    </div>
 
+                        <div class="form-group">
+                            <label for="service">Service</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="Home Removal">Home Removal</option>
+                                <option value="Office Move">Office Move</option>
+                                <option value="Packing Service">Packing Service</option>
+                                <option value="Storage">Storage</option>
+                                <option value="Single Item Move">Single Item Move</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="details">Anything else we should know?</label>
+                            <textarea id="details" name="details" rows="4" placeholder="Number of rooms, special items, access issues, etc."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Get My Free Quote</button>
+                        <p class="privacy">We'll never share your details. Expect a reply within a few hours.</p>
+                    </form>
+
+                    <div id="formSuccess" class="form-success" style="display: none;">
+                        <svg viewBox="0 0 24 24" width="64" height="64" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <h3>Thank You!</h3>
+                        <p>Your quote request has been sent. We'll get back to you shortly.</p>
+                    </div>
                 </div>
             </div>
         </section>
